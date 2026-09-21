@@ -29,12 +29,9 @@ public class SecurityConfig {
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
-
         DaoAuthenticationProvider provider =
                 new DaoAuthenticationProvider(userDetailsService);
-
         provider.setPasswordEncoder(passwordEncoder());
-
         return provider;
     }
 
@@ -42,7 +39,6 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration configuration
     ) throws Exception {
-
         return configuration.getAuthenticationManager();
     }
 
@@ -50,10 +46,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http
     ) throws Exception {
-
         http
                .authorizeHttpRequests(auth -> auth
-
                    .requestMatchers(
                        "/login",
                        "/css/**",
@@ -61,42 +55,30 @@ public class SecurityConfig {
                        "/images/**",
                        "/uploads/**"
                    ).permitAll()
-
                    .requestMatchers("/admin/**")
                    .hasRole("ADMIN")
-
                    .anyRequest()
                    .authenticated()
                )
 
                .formLogin(form -> form
-
                   .loginPage("/login")
-
                   .loginProcessingUrl("/login")
-
                   .defaultSuccessUrl(
                       "/",
                       true
                   )
-
                   .failureUrl(
                       "/login?error=true"
                   )
-
                   .permitAll()
              )
 
              .logout(logout -> logout
-
                   .logoutUrl("/logout")
-
                   .logoutSuccessUrl("/login?logout=true")
-
                   .invalidateHttpSession(true)
-
                   .deleteCookies("JSESSIONID")
-
                   .permitAll()
              );
 
