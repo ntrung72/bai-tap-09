@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <title>Trang chủ</title>
+</head>
+
+<body>
+
+<main class="page-container" layout:fragment="content">
+
+    <section class="welcome-card">
+        <span class="welcome-label">UTEShop</span>
+
+        <h1>
+            Trang chủ UTEShop
+        </h1>
+
+        <p>
+            Xin chào
+            <strong
+                th:text="${#authentication.principal.fullName}">
+                Trần Nam Trung
+            </strong>
+        </p>
+    </section>
+
+</main>
+
+</body>
+
+</html>
