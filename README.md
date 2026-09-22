@@ -7,3 +7,4 @@
 
 - BaiTap09_ViDu1: Chức năng đăng nhập bằng Spring Security.
 - BaiTap09_ViDu2: Custom Login bằng username hoặc email.
+- BaiTap09_ViDu3: Đăng ký xác nhận OTP, đăng nhập, quên mật khẩu, quản lý User và Product, tìm kiếm phân trang, upload ảnh Cloudinary.
